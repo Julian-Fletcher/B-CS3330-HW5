@@ -1,13 +1,15 @@
 package pizzaType;
 
+import java.util.List;
+
 public class VegetarianPizza extends AbstractPizza {
 
-	// protected List<Toppings> toppingList;
+	protected List<Toppings> toppingList;
 	protected double priceWithoutToppings = 1.50;
 	protected double totalPrice;
 	protected int pizzaOrderID;
 	protected static int orderIDCounter;
-	// protected ICookingStrategy cookingStrategy;
+	protected ICookingStrategy cookingStrategy;
 	protected double cookingPrice;
 		
 	public VegetarianPizza() 

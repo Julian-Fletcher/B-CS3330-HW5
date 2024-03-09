@@ -1,5 +1,6 @@
 package pizzaType;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class VegetarianPizza extends AbstractPizza {
@@ -15,6 +16,12 @@ public class VegetarianPizza extends AbstractPizza {
 	public VegetarianPizza() 
 	{
 		super();
+		this.toppingList = new ArrayList<Toppings>();
+		this.toppingList.add(Toppings.TOMATO);
+		this.toppingList.add(Toppings.CHEESE);
+		this.toppingList.add(Toppings.BELL_PEPPER);
+		this.toppingList.add(Toppings.BLACK_OLIVE);
+		this.toppingList.add(Toppings.MUSHROOM);
 	}
 	
 	protected double addTopingsToPrice(double priceWithoutToppings)
@@ -66,6 +73,20 @@ public class VegetarianPizza extends AbstractPizza {
 	public void setCookingPrice(double cookingPrice) {
 		this.cookingPrice = cookingPrice;
 	}
-	
-	
+
+	public List<Toppings> getToppingList() {
+		return toppingList;
+	}
+
+	public void setToppingList(List<Toppings> toppingList) {
+		this.toppingList = toppingList;
+	}
+
+	public ICookingStrategy getCookingStrategy() {
+		return cookingStrategy;
+	}
+
+	public void setCookingStrategy(ICookingStrategy cookingStrategy) {
+		this.cookingStrategy = cookingStrategy;
+	}	
 }

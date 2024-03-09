@@ -1,5 +1,7 @@
 package pizzaType;
 
+import cookingStrategies.ICookingStrategy;
+
 public class MicrowaveCookingStrategy implements ICookingStrategy{
 
 	public MicrowaveCookingStrategy() {

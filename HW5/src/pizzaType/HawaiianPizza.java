@@ -3,6 +3,8 @@ package pizzaType;
 import java.util.ArrayList;
 import java.util.List;
 
+import cookingStrategies.ICookingStrategy;
+
 public class HawaiianPizza extends AbstractPizza {
 
 	protected List<Toppings> toppingList;

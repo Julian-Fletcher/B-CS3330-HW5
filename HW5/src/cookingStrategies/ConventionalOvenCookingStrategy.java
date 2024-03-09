@@ -1,4 +1,6 @@
-package pizzaType;
+package cookingStrategies;
+
+import pizzaType.AbstractPizza;
 
 public class ConventionalOvenCookingStrategy implements ICookingStrategy{
 

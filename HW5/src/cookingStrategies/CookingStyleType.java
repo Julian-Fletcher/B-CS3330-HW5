@@ -1,4 +1,4 @@
-package pizzaType;
+package cookingStrategies;
 
 public enum CookingStyleType {
 	MICROWAVE,

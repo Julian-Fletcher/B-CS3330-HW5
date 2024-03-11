@@ -12,7 +12,7 @@ public class PizzaCookingFactory {
 	
 	public AbstractPizza createPizza(PizzaType pizzaType) {
 		
-		//Init new Pizza instance
+		//Initializes new Pizza instance
 		AbstractPizza newPizza;
 		
 		//Default case to allow return

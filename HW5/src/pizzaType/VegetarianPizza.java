@@ -102,5 +102,12 @@ public class VegetarianPizza extends AbstractPizza {
 
 	public void setCookingStrategy(ICookingStrategy cookingStrategy) {
 		this.cookingStrategy = cookingStrategy;
-	}	
+	}
+
+	@Override
+	public String toString() {
+		return "VegetarianPizza [toppingList=" + toppingList + ", priceWithoutToppings=" + priceWithoutToppings
+				+ ", totalPrice=" + totalPrice + ", pizzaOrderID=" + pizzaOrderID + ", cookingStrategy="
+				+ cookingStrategy + ", cookingPrice=" + cookingPrice + "]";
+	}
 }

@@ -100,5 +100,12 @@ public class HawaiianPizza extends AbstractPizza {
 
 	public void setCookingStrategy(ICookingStrategy cookingStrategy) {
 		this.cookingStrategy = cookingStrategy;
-	}	
+	}
+
+	@Override
+	public String toString() {
+		return "HawaiianPizza [toppingList=" + toppingList + ", priceWithoutToppings=" + priceWithoutToppings
+				+ ", totalPrice=" + totalPrice + ", pizzaOrderID=" + pizzaOrderID + ", cookingStrategy="
+				+ cookingStrategy + ", cookingPrice=" + cookingPrice + "]";
+	}
 }

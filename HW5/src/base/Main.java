@@ -17,6 +17,9 @@ public class Main {
 		VegetarianPizza vegPizza = new VegetarianPizza();
 		SupremePizza supPizza = new SupremePizza();
 		
+		System.out.println(margPizza.toString()); //testing the toString method
+		
+		/*
 		System.out.println("MargPizza without toppings cost: " + margPizza.getPriceWithoutToppings());
 		for(Toppings t : margPizza.getToppingList()) //testing if the default toppings for MargheritaPizza are present
 		{
@@ -44,6 +47,6 @@ public class Main {
 			System.out.println("SupPizza Toppings and Price: " + t + " " + t.getToppingPrice()); //testing toppings prices
 		}
 		System.out.println();
-		
+		*/
 	}
 }

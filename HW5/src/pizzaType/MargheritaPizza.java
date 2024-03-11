@@ -100,4 +100,11 @@ public class MargheritaPizza extends AbstractPizza {
 	public void setCookingStrategy(ICookingStrategy cookingStrategy) {
 		this.cookingStrategy = cookingStrategy;
 	}
+
+	@Override
+	public String toString() {
+		return "MargheritaPizza [toppingList=" + toppingList + ", priceWithoutToppings=" + priceWithoutToppings
+				+ ", totalPrice=" + totalPrice + ", pizzaOrderID=" + pizzaOrderID + ", cookingStrategy="
+				+ cookingStrategy + ", cookingPrice=" + cookingPrice + "]";
+	}
 }

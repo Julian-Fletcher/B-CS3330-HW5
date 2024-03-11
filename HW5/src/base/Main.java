@@ -9,15 +9,16 @@ import pizzaType.Toppings;
 
 public class Main {
 
-	public static void main(String[] args) {
-		System.out.println("Hi");
-
+	public static void main(String[] args)
+	{
 		MargheritaPizza margPizza = new MargheritaPizza(); 
 		HawaiianPizza hawaPizza = new HawaiianPizza();
 		VegetarianPizza vegPizza = new VegetarianPizza();
 		SupremePizza supPizza = new SupremePizza();
 		
-		System.out.println(margPizza.toString()); //testing the toString method
+		SupremePizza supPizza2 = new SupremePizza(supPizza); //testing copy constructor
+		System.out.println(supPizza.toString());
+		System.out.println(supPizza2.toString());
 		
 		/*
 		System.out.println("MargPizza without toppings cost: " + margPizza.getPriceWithoutToppings());

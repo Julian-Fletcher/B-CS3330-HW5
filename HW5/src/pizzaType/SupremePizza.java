@@ -28,6 +28,17 @@ public class SupremePizza extends AbstractPizza {
 		this.toppingList.add(Toppings.MUSHROOM);
 	}
 	
+	public SupremePizza(SupremePizza pizza)
+	{
+		this.toppingList = pizza.toppingList;
+		this.priceWithoutToppings = pizza.priceWithoutToppings;
+		this.totalPrice = pizza.totalPrice;
+		this.pizzaOrderID = pizza.pizzaOrderID;
+		this.orderIDCounter = pizza.orderIDCounter;
+		this.cookingStrategy = pizza.cookingStrategy;
+		this.cookingPrice = pizza.cookingPrice;
+	}
+	
 	protected double addTopingsToPrice(double priceWithoutToppings)
 	{
 		double toppingsPrice = 0;

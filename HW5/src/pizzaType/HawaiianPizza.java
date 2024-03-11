@@ -26,7 +26,13 @@ public class HawaiianPizza extends AbstractPizza {
 	
 	protected double addTopingsToPrice(double priceWithoutToppings)
 	{
-		return 0;
+		double toppingsPrice = 0;
+		for(Toppings t : this.toppingList)
+		{
+			toppingsPrice += t.getToppingPrice();
+		}
+		double priceWithToppings = toppingsPrice + priceWithoutToppings;
+		return priceWithToppings;
 	}
 	
 	public double updatePizzaPrice()

@@ -41,6 +41,7 @@ public class Main {
 		conventionalOven.cook(vegPizza);
 		System.out.println(vegPizza.toString()); //toString after cooking in conventionalOven
 		System.out.println();
+		System.out.println(hawaPizza.toString());
 		
 		
 		

@@ -7,52 +7,48 @@ import cookingStrategies.ICookingStrategy;
 
 public class VegetarianPizza extends AbstractPizza {
 
-	protected List<Toppings> toppingList;
-	protected double priceWithoutToppings = 1.50;
-	protected double totalPrice;
-	protected int pizzaOrderID;
-	protected static int orderIDCounter;
-	protected ICookingStrategy cookingStrategy;
-	protected double cookingPrice;
+
 		
 	public VegetarianPizza() 
 	{
 		super();
-		this.toppingList = new ArrayList<Toppings>();
-		this.toppingList.add(Toppings.TOMATO);
-		this.toppingList.add(Toppings.CHEESE);
-		this.toppingList.add(Toppings.BELL_PEPPER);
-		this.toppingList.add(Toppings.BLACK_OLIVE);
-		this.toppingList.add(Toppings.MUSHROOM);
+		super.toppingList = new ArrayList<Toppings>();
+		super.toppingList.add(Toppings.TOMATO);
+		super.toppingList.add(Toppings.CHEESE);
+		super.toppingList.add(Toppings.BELL_PEPPER);
+		super.toppingList.add(Toppings.BLACK_OLIVE);
+		super.toppingList.add(Toppings.MUSHROOM);
+		super.priceWithoutToppings = 1.50;
 	}
 	
 	public VegetarianPizza(VegetarianPizza pizza)
 	{
-		this.toppingList = pizza.toppingList;
-		this.priceWithoutToppings = pizza.priceWithoutToppings;
-		this.totalPrice = pizza.totalPrice;
-		this.pizzaOrderID = pizza.pizzaOrderID;
-		this.orderIDCounter = pizza.orderIDCounter;
-		this.cookingStrategy = pizza.cookingStrategy;
-		this.cookingPrice = pizza.cookingPrice;
+		super.toppingList = pizza.toppingList;
+		super.priceWithoutToppings = pizza.priceWithoutToppings;
+		super.totalPrice = pizza.totalPrice;
+		super.pizzaOrderID = pizza.pizzaOrderID;
+		super.cookingStrategy = pizza.cookingStrategy;
+		super.cookingPrice = pizza.cookingPrice;
 	}
 	
+	@Override
 	protected double addTopingsToPrice(double priceWithoutToppings)
 	{
 		double toppingsPrice = 0;
-		for(Toppings t : this.toppingList)
+		for(Toppings t : super.toppingList)
 		{
 			toppingsPrice += t.getToppingPrice();
 		}
-		this.totalPrice = toppingsPrice + priceWithoutToppings;
-		return this.totalPrice;
+		super.totalPrice = toppingsPrice + priceWithoutToppings;
+		return super.totalPrice;
 	}
 	
+	@Override
 	public double updatePizzaPrice()
 	{
 		//Changed to function for simplicity and reusability
-		this.addTopingsToPrice(this.priceWithoutToppings);
-		return this.totalPrice;
+		this.addTopingsToPrice(super.priceWithoutToppings);
+		return super.totalPrice;
 	}
 	
 	public double getPriceWithoutToppings() {
@@ -60,7 +56,7 @@ public class VegetarianPizza extends AbstractPizza {
 	}
 
 	public void setPriceWithoutToppings(double priceWithoutToppings) {
-		this.priceWithoutToppings = priceWithoutToppings;
+		super.priceWithoutToppings = priceWithoutToppings;
 	}
 
 	public double getTotalPrice() {
@@ -68,7 +64,7 @@ public class VegetarianPizza extends AbstractPizza {
 	}
 
 	public void setTotalPrice(double totalPrice) {
-		this.totalPrice = totalPrice;
+		super.totalPrice = totalPrice;
 	}
 
 	public int getPizzaOrderID() {
@@ -76,7 +72,7 @@ public class VegetarianPizza extends AbstractPizza {
 	}
 
 	public void setPizzaOrderID(int pizzaOrderID) {
-		this.pizzaOrderID = pizzaOrderID;
+		super.pizzaOrderID = pizzaOrderID;
 	}
 
 	public static int getOrderIDCounter() {
@@ -92,7 +88,7 @@ public class VegetarianPizza extends AbstractPizza {
 	}
 
 	public void setCookingPrice(double cookingPrice) {
-		this.cookingPrice = cookingPrice;
+		super.cookingPrice = cookingPrice;
 	}
 
 	public List<Toppings> getToppingList() {
@@ -100,7 +96,7 @@ public class VegetarianPizza extends AbstractPizza {
 	}
 
 	public void setToppingList(List<Toppings> toppingList) {
-		this.toppingList = toppingList;
+		super.toppingList = toppingList;
 	}
 
 	public ICookingStrategy getCookingStrategy() {
@@ -108,7 +104,7 @@ public class VegetarianPizza extends AbstractPizza {
 	}
 
 	public void setCookingStrategy(ICookingStrategy cookingStrategy) {
-		this.cookingStrategy = cookingStrategy;
+		super.cookingStrategy = cookingStrategy;
 	}
 
 	@Override

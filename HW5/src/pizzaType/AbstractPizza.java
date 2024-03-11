@@ -1,6 +1,9 @@
 package pizzaType;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import cookingStrategies.ICookingStrategy;
 
 public abstract class AbstractPizza {
 	protected List<Toppings> toppingList;
@@ -8,16 +11,23 @@ public abstract class AbstractPizza {
 	protected double totalPrice;
 	protected int pizzaOrderID;
 	protected static int orderIDCounter;
+	protected ICookingStrategy cookingStrategy;
 	// protected ICookingStrategy cookingStrategy;
 	protected double cookingPrice;
 	
 	
+	
+	
+	protected abstract double addTopingsToPrice(double priceWithoutToppings);
+	
+	public abstract double updatePizzaPrice();
+	
 	// Constructor to instantiate the toppingList as an ArrayList 
 	public AbstractPizza() {
-		
+		this.toppingList = new ArrayList<Toppings>();
 	}
 
-
+	
 	public double getPriceWithoutToppings() {
 		return priceWithoutToppings;
 	}

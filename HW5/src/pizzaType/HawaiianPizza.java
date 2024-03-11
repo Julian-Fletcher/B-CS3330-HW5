@@ -37,7 +37,13 @@ public class HawaiianPizza extends AbstractPizza {
 	
 	public double updatePizzaPrice()
 	{
-		return 0;
+		double toppingsPrice = 0;
+		for(Toppings t : this.toppingList)
+		{
+			toppingsPrice += t.getToppingPrice();
+		}
+		this.totalPrice = toppingsPrice + priceWithoutToppings;
+		return this.totalPrice;
 	}
 
 	public double getPriceWithoutToppings() {

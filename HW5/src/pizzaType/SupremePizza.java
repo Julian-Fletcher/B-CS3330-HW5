@@ -52,12 +52,8 @@ public class SupremePizza extends AbstractPizza {
 	
 	public double updatePizzaPrice()
 	{
-		double toppingsPrice = 0;
-		for(Toppings t : this.toppingList)
-		{
-			toppingsPrice += t.getToppingPrice();
-		}
-		this.totalPrice = toppingsPrice + priceWithoutToppings;
+		//Changed to function for simplicity and reusability
+		this.addTopingsToPrice(this.priceWithoutToppings);
 		return this.totalPrice;
 	}
 

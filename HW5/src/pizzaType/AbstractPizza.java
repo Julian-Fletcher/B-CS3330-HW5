@@ -1,5 +1,7 @@
 package pizzaType;
 
+//import java.util.List;
+
 public abstract class AbstractPizza {
 	// protected List<Toppings> toppingList;
 	protected double priceWithoutToppings;
@@ -15,7 +17,6 @@ public abstract class AbstractPizza {
 		
 	}
 
-	
 	// Getters and setters
 	
 	

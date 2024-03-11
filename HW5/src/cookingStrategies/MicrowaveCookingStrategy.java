@@ -19,21 +19,25 @@ public class MicrowaveCookingStrategy implements ICookingStrategy{
 		if(pizza instanceof MargheritaPizza)
 		{
 			((MargheritaPizza) pizza).setCookingPrice(microwaveCookingPrice);
+			((MargheritaPizza) pizza).setCookingStrategy(new MicrowaveCookingStrategy());
 			return true;
 		}
 		else if(pizza instanceof VegetarianPizza)
 		{
 			((VegetarianPizza) pizza).setCookingPrice(microwaveCookingPrice);
+			((VegetarianPizza) pizza).setCookingStrategy(new MicrowaveCookingStrategy());
 			return true;
 		}
 		else if(pizza instanceof HawaiianPizza)
 		{
 			((HawaiianPizza) pizza).setCookingPrice(microwaveCookingPrice);
+			((HawaiianPizza) pizza).setCookingStrategy(new MicrowaveCookingStrategy());
 			return true;
 		}
 		else if(pizza instanceof SupremePizza)
 		{
 			((SupremePizza) pizza).setCookingPrice(microwaveCookingPrice);
+			((SupremePizza) pizza).setCookingStrategy(new MicrowaveCookingStrategy());
 			return true;
 		}
 		return false;

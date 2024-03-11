@@ -19,21 +19,25 @@ public class BrickOvenCookingStrategy implements ICookingStrategy{
 		if(pizza instanceof MargheritaPizza)
 		{
 			((MargheritaPizza) pizza).setCookingPrice(brickOvenCookingPrice);
+			((MargheritaPizza) pizza).setCookingStrategy(new BrickOvenCookingStrategy());
 			return true;
 		}
 		else if(pizza instanceof VegetarianPizza)
 		{
 			((VegetarianPizza) pizza).setCookingPrice(brickOvenCookingPrice);
+			((VegetarianPizza) pizza).setCookingStrategy(new BrickOvenCookingStrategy());
 			return true;
 		}
 		else if(pizza instanceof HawaiianPizza)
 		{
 			((HawaiianPizza) pizza).setCookingPrice(brickOvenCookingPrice);
+			((HawaiianPizza) pizza).setCookingStrategy(new BrickOvenCookingStrategy());
 			return true;
 		}
 		else if(pizza instanceof SupremePizza)
 		{
 			((SupremePizza) pizza).setCookingPrice(brickOvenCookingPrice);
+			((SupremePizza) pizza).setCookingStrategy(new BrickOvenCookingStrategy());
 			return true;
 		}
 		return false;

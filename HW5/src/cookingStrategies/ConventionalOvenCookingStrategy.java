@@ -19,21 +19,25 @@ public class ConventionalOvenCookingStrategy implements ICookingStrategy{
 		if(pizza instanceof MargheritaPizza)
 		{
 			((MargheritaPizza) pizza).setCookingPrice(conventionalOvenCookingPrice);
+			((MargheritaPizza) pizza).setCookingStrategy(new ConventionalOvenCookingStrategy());
 			return true;
 		}
 		else if(pizza instanceof VegetarianPizza)
 		{
 			((VegetarianPizza) pizza).setCookingPrice(conventionalOvenCookingPrice);
+			((VegetarianPizza) pizza).setCookingStrategy(new ConventionalOvenCookingStrategy());
 			return true;
 		}
 		else if(pizza instanceof HawaiianPizza)
 		{
 			((HawaiianPizza) pizza).setCookingPrice(conventionalOvenCookingPrice);
+			((HawaiianPizza) pizza).setCookingStrategy(new ConventionalOvenCookingStrategy());
 			return true;
 		}
 		else if(pizza instanceof SupremePizza)
 		{
 			((SupremePizza) pizza).setCookingPrice(conventionalOvenCookingPrice);
+			((SupremePizza) pizza).setCookingStrategy(new ConventionalOvenCookingStrategy());
 			return true;
 		}
 		return false;

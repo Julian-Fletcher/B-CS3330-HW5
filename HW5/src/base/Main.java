@@ -1,10 +1,12 @@
 package base;
 
+import cookingStrategies.BrickOvenCookingStrategy;
+import cookingStrategies.ConventionalOvenCookingStrategy;
+import cookingStrategies.MicrowaveCookingStrategy;
 import pizzaType.HawaiianPizza;
 import pizzaType.MargheritaPizza;
 import pizzaType.VegetarianPizza;
 import pizzaType.SupremePizza;
-import pizzaType.Toppings;
 
 
 public class Main {
@@ -16,9 +18,26 @@ public class Main {
 		VegetarianPizza vegPizza = new VegetarianPizza();
 		SupremePizza supPizza = new SupremePizza();
 		
-		SupremePizza supPizza2 = new SupremePizza(supPizza); //testing copy constructor
-		System.out.println(supPizza.toString());
-		System.out.println(supPizza2.toString());
+		System.out.println(margPizza.toString()); //toString before cooking in microwave
+		MicrowaveCookingStrategy microwave = new MicrowaveCookingStrategy();
+		microwave.cook(margPizza);
+		System.out.println(margPizza.toString()); //toString after cooking in microwave
+		System.out.println();
+		
+		System.out.println(hawaPizza.toString()); //toString before cooking in brickOven
+		BrickOvenCookingStrategy brickOven = new BrickOvenCookingStrategy();
+		brickOven.cook(hawaPizza);
+		System.out.println(hawaPizza.toString()); //toString after cooking in brickOven
+		System.out.println();
+		
+		System.out.println(vegPizza.toString()); //toString before cooking in conventionalOven
+		ConventionalOvenCookingStrategy conventionalOven = new ConventionalOvenCookingStrategy();
+		conventionalOven.cook(vegPizza);
+		System.out.println(vegPizza.toString()); //toString after cooking in conventionalOven
+		System.out.println();
+		
+		//SupremePizza supPizza2 = new SupremePizza(supPizza); 
+		//System.out.println(supPizza2.toString());//testing copy constructor
 		
 		/*
 		System.out.println("MargPizza without toppings cost: " + margPizza.getPriceWithoutToppings());

@@ -5,17 +5,23 @@ import cookingStrategies.ConventionalOvenCookingStrategy;
 import cookingStrategies.MicrowaveCookingStrategy;
 import pizzaType.HawaiianPizza;
 import pizzaType.MargheritaPizza;
+import pizzaType.PizzaType;
 import pizzaType.VegetarianPizza;
 import pizzaType.SupremePizza;
-
+import pizzaOrder.PizzaCookingFactory;
+import pizzaType.AbstractPizza;
 
 public class Main {
 
 	public static void main(String[] args)
 	{
-		MargheritaPizza margPizza = new MargheritaPizza(); 
-		HawaiianPizza hawaPizza = new HawaiianPizza();
-		VegetarianPizza vegPizza = new VegetarianPizza();
+		PizzaCookingFactory c = new PizzaCookingFactory();
+		AbstractPizza margPizza = c.createPizza(PizzaType.MARGHERITA);
+		//MargheritaPizza margPizza = new MargheritaPizza(); 
+		AbstractPizza hawaPizza = c.createPizza(PizzaType.HAWAIIAN);
+		//HawaiianPizza hawaPizza = new HawaiianPizza();
+		AbstractPizza vegPizza = c.createPizza(PizzaType.VEGETARIAN);
+		//VegetarianPizza vegPizza = new VegetarianPizza();
 		SupremePizza supPizza = new SupremePizza();
 		
 		System.out.println(margPizza.toString()); //toString before cooking in microwave
@@ -35,6 +41,9 @@ public class Main {
 		conventionalOven.cook(vegPizza);
 		System.out.println(vegPizza.toString()); //toString after cooking in conventionalOven
 		System.out.println();
+		
+		
+		
 		
 		//SupremePizza supPizza2 = new SupremePizza(supPizza); 
 		//System.out.println(supPizza2.toString());//testing copy constructor

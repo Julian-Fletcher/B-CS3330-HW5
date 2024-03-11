@@ -9,14 +9,16 @@ import pizzaType.VegetarianPizza;
 
 public class PizzaCookingFactory {
 
-	private int orderIDCounter = 0;
 	
 	public AbstractPizza createPizza(PizzaType pizzaType) {
 		
-		
+		//Init new Pizza instance
 		AbstractPizza newPizza;
+		
+		//Default case to allow return
 		newPizza = null;
 		
+		//Decide type and create new Pizza of type
 		if(pizzaType == PizzaType.HAWAIIAN) {
 			newPizza = new HawaiianPizza();
 		}
@@ -29,8 +31,11 @@ public class PizzaCookingFactory {
 		if(pizzaType == PizzaType.VEGETARIAN) {
 			newPizza = new VegetarianPizza();
 		}
-		newPizza.setPizzaOrderID(orderIDCounter);
-		orderIDCounter += 1;
+
+		//Set PizzaOrderID of newPizza and increment static AbstractPizza counter
+		newPizza.setPizzaOrderID(AbstractPizza.getOrderIDCounter());
+		AbstractPizza.setOrderIDCounter(AbstractPizza.getOrderIDCounter()+1);
+
 		
 		
 		

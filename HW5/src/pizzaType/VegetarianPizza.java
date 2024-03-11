@@ -33,8 +33,8 @@ public class VegetarianPizza extends AbstractPizza {
 		{
 			toppingsPrice += t.getToppingPrice();
 		}
-		double priceWithToppings = toppingsPrice + priceWithoutToppings;
-		return priceWithToppings;
+		this.totalPrice = toppingsPrice + priceWithoutToppings;
+		return this.totalPrice;
 	}
 	
 	public double updatePizzaPrice()

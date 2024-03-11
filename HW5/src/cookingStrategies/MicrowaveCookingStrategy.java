@@ -44,7 +44,7 @@ public class MicrowaveCookingStrategy implements ICookingStrategy{
 					((MargheritaPizza)pizza).setCookingStrategy(new MicrowaveCookingStrategy());
 				}
 				double currentMargPizzaPrice = ((MargheritaPizza) pizza).getTotalPrice(); //get original total for this pizza
-				((MargheritaPizza) pizza).setTotalPrice(currentMargPizzaPrice + microwaveCookingPrice); //added the cost of microwave cooking to the original total
+				((MargheritaPizza) pizza).setTotalPrice(currentMargPizzaPrice + microwaveCookingPrice); //added the cost of cooking to the original total
 				return true; //upon completion return true
 			}
 			case "VegetarianPizza":

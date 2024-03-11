@@ -7,7 +7,6 @@ import pizzaType.HawaiianPizza;
 import pizzaType.MargheritaPizza;
 import pizzaType.VegetarianPizza;
 import pizzaType.SupremePizza;
-import pizzaType.Toppings;
 
 
 public class Main {

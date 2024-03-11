@@ -44,7 +44,7 @@ public class ConventionalOvenCookingStrategy implements ICookingStrategy{
 					((MargheritaPizza)pizza).setCookingStrategy(new ConventionalOvenCookingStrategy());
 				}
 				double currentMargPizzaPrice = ((MargheritaPizza) pizza).getTotalPrice(); //get original total for this pizza
-				((MargheritaPizza) pizza).setTotalPrice(currentMargPizzaPrice + conventionalOvenCookingPrice); //added the cost of microwave cooking to the original total
+				((MargheritaPizza) pizza).setTotalPrice(currentMargPizzaPrice + conventionalOvenCookingPrice); //added the cost of cooking to the original total
 				return true; //upon completion return true
 			}
 			case "VegetarianPizza":

@@ -105,16 +105,15 @@ public class PizzaOrder
 	}
 	
 	
-	public boolean isThereAnyUncookedPizza() {
-		/*
-		for(AbstractPizza pizza : pizzaOrderList) {
-			if(pizza.[METHOD I CANT SEE] == [VALUE FOR NO STRATEGY) {
-				return true;
-			}
-		}
-		*/
-		return false;
-	}
+public boolean isThereAnyUncookedPizza() {
+    for (AbstractPizza pizza : pizzaOrderList) {
+        if (pizza.getCookingStrategy() == null) {
+            // If the pizza does not have an assigned cooking strategy
+            return true; // There is at least one uncooked pizza
+        }
+    }
+    return false; // All pizzas have assigned cooking strategies
+}
 	
 	 
 	public double checkout() throws Exception {
@@ -123,9 +122,35 @@ public class PizzaOrder
 	 
 	// Same as above must switch based on specific pizza type
 	public boolean selectCookingStrategyByPizzaOrderID(int orderID, CookingStyleType cookingStrategyType) {
-		AbstractPizza pizza = getPizzaByOrderID(orderID); 
-		
-		
-		return false;
-	}
+    // Find the pizza associated with the order ID
+    AbstractPizza pizza = getPizzaByOrderID(orderID);
+    if (pizza == null) {
+        // If pizza not found for the given order ID
+        return false;
+    }
+
+    // Instantiate the cooking strategy based on the provided cookingStrategyType
+    ICookingStrategy cookingStrategy;
+    switch (cookingStrategyType) {
+        case BAKE:
+            cookingStrategy = new BakeCookingStrategy();
+            break;
+        case GRILL:
+            cookingStrategy = new GrillCookingStrategy();
+            break;
+        case FRY:
+            cookingStrategy = new FryCookingStrategy();
+            break;
+        default:
+            // Unsupported cooking strategy type
+            return false;
+    }
+
+    // Set the cooking strategy for the pizza
+    pizza.setCookingStrategy(cookingStrategy);
+
+    // Call the cook function for the pizza
+    pizza.cook();
+
+    return true;
 }

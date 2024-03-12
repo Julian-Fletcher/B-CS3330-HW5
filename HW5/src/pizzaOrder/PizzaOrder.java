@@ -109,13 +109,66 @@ public class PizzaOrder
 	
 	
 public boolean isThereAnyUncookedPizza() {
-    for (AbstractPizza pizza : pizzaOrderList) {
-        if (pizza.getCookingStrategy() == null) {
-            // If the pizza does not have an assigned cooking strategy
-            return true; // There is at least one uncooked pizza
-        }
+    for (AbstractPizza pizza : pizzaOrderList) 
+    {
+    	String pizzaType;
+    	if(pizza instanceof MargheritaPizza)
+		{
+			pizzaType = "MargheritaPizza";
+		}
+		else if(pizza instanceof VegetarianPizza)
+		{
+			pizzaType = "VegetarianPizza";
+		}
+		else if(pizza instanceof HawaiianPizza)
+		{
+			pizzaType = "HawaiianPizza";
+		}
+		else
+		{
+			pizzaType = "SupremePizza";
+		}
+		
+		switch(pizzaType)
+		{
+			case "MargheritaPizza":
+			{
+				if (((MargheritaPizza)pizza).getCookingStrategy() == null) 
+				{
+					// If the pizza does not have an assigned cooking strategy
+					return true; // There is at least one uncooked pizza
+				}
+			}
+			case "VegetarianPizza":
+			{
+				if (((VegetarianPizza)pizza).getCookingStrategy() == null) 
+				{
+					// If the pizza does not have an assigned cooking strategy
+					return true; // There is at least one uncooked pizza
+				}
+			}
+			case "HawaiianPizza":
+			{
+				if (((HawaiianPizza)pizza).getCookingStrategy() == null) 
+				{
+					// If the pizza does not have an assigned cooking strategy
+					return true; // There is at least one uncooked pizza
+				}
+			}
+			case "SupremePizza":
+			{
+				if (((SupremePizza)pizza).getCookingStrategy() == null) 
+				{
+					// If the pizza does not have an assigned cooking strategy
+					return true; // There is at least one uncooked pizza
+				}
+			}
+			default:
+			{
+				return false; // All pizzas have assigned cooking strategies
+			}
+		}
     }
-    return false; // All pizzas have assigned cooking strategies
 }
 	
 	 
@@ -148,7 +201,7 @@ public boolean isThereAnyUncookedPizza() {
             // Unsupported cooking strategy type
             return false;
     }
-
+    
     // Set the cooking strategy for the pizza
     pizza.setCookingStrategy(cookingStrategy);
 

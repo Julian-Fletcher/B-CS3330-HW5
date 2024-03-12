@@ -202,9 +202,51 @@ public boolean isThereAnyUncookedPizza() {
             return false;
     }
     
-    // Set the cooking strategy for the pizza
-    pizza.setCookingStrategy(cookingStrategy);
-
+	String pizzaType;
+	if(pizza instanceof MargheritaPizza)
+	{
+		pizzaType = "MargheritaPizza";
+	}
+	else if(pizza instanceof VegetarianPizza)
+	{
+		pizzaType = "VegetarianPizza";
+	}
+	else if(pizza instanceof HawaiianPizza)
+	{
+		pizzaType = "HawaiianPizza";
+	}
+	else
+	{
+		pizzaType = "SupremePizza";
+	}
+	
+	switch(pizzaType)
+	{
+		case "MargheritaPizza":
+		{    
+			// Set the cooking strategy for the pizza
+			((MargheritaPizza)pizza).setCookingStrategy(cookingStrategy);
+		}
+		case "VegetarianPizza":
+		{
+			// Set the cooking strategy for the pizza
+			((VegetarianPizza)pizza).setCookingStrategy(cookingStrategy);
+		}
+		case "HawaiianPizza":
+		{
+			// Set the cooking strategy for the pizza
+			((HawaiianPizza)pizza).setCookingStrategy(cookingStrategy);
+		}
+		case "SupremePizza":
+		{
+			// Set the cooking strategy for the pizza
+			((SupremePizza)pizza).setCookingStrategy(cookingStrategy);
+		}
+		default:
+		{
+			break;
+		}
+	}
     // Call the cook function for the pizza
     pizza.cook();
 

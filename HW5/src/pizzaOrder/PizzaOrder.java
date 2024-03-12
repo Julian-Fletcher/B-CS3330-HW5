@@ -3,8 +3,11 @@ package pizzaOrder;
 import java.util.ArrayList;
 import java.util.List;
 
+import cookingStrategies.BrickOvenCookingStrategy;
+import cookingStrategies.ConventionalOvenCookingStrategy;
 import cookingStrategies.CookingStyleType;
 import cookingStrategies.ICookingStrategy;
+import cookingStrategies.MicrowaveCookingStrategy;
 import pizzaType.*;
 
 public class PizzaOrder 
@@ -132,14 +135,14 @@ public boolean isThereAnyUncookedPizza() {
     // Instantiate the cooking strategy based on the provided cookingStrategyType
     ICookingStrategy cookingStrategy;
     switch (cookingStrategyType) {
-        case BAKE:
-            cookingStrategy = new BakeCookingStrategy();
+        case BRICK_OVEN:
+            cookingStrategy = new BrickOvenCookingStrategy();
             break;
-        case GRILL:
-            cookingStrategy = new GrillCookingStrategy();
+        case CONVENTIONAL_OVEN:
+            cookingStrategy = new ConventionalOvenCookingStrategy();
             break;
-        case FRY:
-            cookingStrategy = new FryCookingStrategy();
+        case MICROWAVE:
+            cookingStrategy = new MicrowaveCookingStrategy();
             break;
         default:
             // Unsupported cooking strategy type

@@ -77,12 +77,13 @@ public abstract class AbstractPizza {
 		this.cookingPrice = cookingPrice;
 	}
 	
-	public List<Toppings> getToppings() {
-		return this.toppingList;
-	}
+//	public List<Toppings> getToppings() {
+//		return this.toppingList;
+//	}
 
 	// Getters and setters
 	
-	
+	public abstract void setToppingList(List<Toppings> toppingList);
+	public abstract List<Toppings> getToppingList();
 	
 }

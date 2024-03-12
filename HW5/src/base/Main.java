@@ -1,5 +1,9 @@
 package base;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import cookingStrategies.BrickOvenCookingStrategy;
 import cookingStrategies.ConventionalOvenCookingStrategy;
 import cookingStrategies.MicrowaveCookingStrategy;
@@ -8,7 +12,9 @@ import pizzaType.MargheritaPizza;
 import pizzaType.PizzaType;
 import pizzaType.VegetarianPizza;
 import pizzaType.SupremePizza;
+import pizzaType.Toppings;
 import pizzaOrder.PizzaCookingFactory;
+import pizzaOrder.PizzaOrder;
 import pizzaType.AbstractPizza;
 
 public class Main {
@@ -43,6 +49,25 @@ public class Main {
 		System.out.println();
 		System.out.println(hawaPizza.toString());
 		
+		// Testing Pizza Order
+		PizzaOrder orderPizza = new PizzaOrder();
+		// Modify marghertia
+		List<Toppings> customTopping1 = new ArrayList<>(Arrays.asList(Toppings.ITALIAN_SAUSAGE, Toppings.CANADIAN_BACON));
+		// Modify hawaiian
+		List<Toppings> remove1 = new ArrayList<>(Arrays.asList(Toppings.PINEAPPLE));
+		// Modiy veggie
+		List<Toppings> customTopping2 = new ArrayList<>(Arrays.asList(Toppings.ITALIAN_SAUSAGE, Toppings.PEPPERONI, Toppings.CANADIAN_BACON));
+	
+		
+		boolean add1 = orderPizza.addPizzaToCart(PizzaType.HAWAIIAN);
+		boolean add2 = orderPizza.addPizzaToCart(PizzaType.MARGHERITA);
+		boolean add3 = orderPizza.addPizzaToCart(PizzaType.VEGETARIAN);
+		if(!add1 || !add2 || !add3) {
+			System.out.println("No add!");
+		}
+		// How do you access order id
+		
+
 		
 		
 		

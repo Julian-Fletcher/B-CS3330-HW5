@@ -5,9 +5,7 @@ import java.util.List;
 
 import cookingStrategies.CookingStyleType;
 import cookingStrategies.ICookingStrategy;
-import pizzaType.AbstractPizza;
-import pizzaType.PizzaType;
-import pizzaType.Toppings;
+import pizzaType.*;
 
 public class PizzaOrder 
 {
@@ -26,7 +24,7 @@ public class PizzaOrder
 		// Find the desired orderID, print its topping list
 		for(AbstractPizza order : pizzaOrderList) {
 			if(order.getPizzaOrderID() == orderID) {
-				List<Toppings> toppings = order.getToppings();
+				List<Toppings> toppings = order.getToppingList();
 				System.out.println(toppings);
 			}
 		}
@@ -49,23 +47,60 @@ public class PizzaOrder
 	
 	
 	public boolean addPizzaToCart(PizzaType pizzaType) {
-		AbstractPizza newPizza = pizzaFactory.createPizza(pizzaType);	// Might need to make this a specific type
-		if(pizzaOrderList.add(newPizza)) {
+		switch(pizzaType) {
+			case HAWAIIAN:
+				HawaiianPizza hawPizza = (HawaiianPizza) pizzaFactory.createPizza(pizzaType);
+				if(pizzaOrderList.add(hawPizza)) {
+					return true;
+				}
+				break;
+			case MARGHERITA:
+				MargheritaPizza marPizza = (MargheritaPizza) pizzaFactory.createPizza(pizzaType);
+				if(pizzaOrderList.add(marPizza)) {
+					return true;
+				}
+				break;
+			case SUPREME:
+				SupremePizza supPizza = (SupremePizza) pizzaFactory.createPizza(pizzaType);
+				if(pizzaOrderList.add(supPizza)) {
+					return true;
+				}
+				break;
+			case VEGETARIAN:
+				VegetarianPizza vegPizza = (VegetarianPizza) pizzaFactory.createPizza(pizzaType);
+				if(pizzaOrderList.add(vegPizza)) {
+					return true;
+				}
+				break;
+			default:
+				return false;
+		}
+		return false;
+	}
+	
+	// Need to find out what pizza it is and then append topping list, possibly update the rest of it too
+	public boolean addNewToppingToPizza(int orderID, Toppings topping) {
+		AbstractPizza pizza = getPizzaByOrderID(orderID);		// Abstract pizza
+		// Get the topping list, update it, and set it as the new list
+		List<Toppings> toppings = pizza.getToppingList();		
+		if(toppings.add(topping)) {
+			pizza.setToppingList(toppings);
 			return true;
 		}
 		
 		return false;
 	}
 	
-	// Need to find out what pizza it is and then append topping list, possibly update the rest of it too
-	public boolean addNewToppingToPizza(int orderID, Toppings topping) {
-		AbstractPizza pizza = getPizzaByOrderID(orderID);
-		
-		return false;
-	}
-	
 	// Same as above but remove
 	public boolean removeToppingFromPizza(int orderID, Toppings topping) {
+	AbstractPizza pizza = getPizzaByOrderID(orderID);		// Abstracat pizza
+	// Get the topping list, update it, and set it as the new list
+		List<Toppings> toppings = pizza.getToppingList();		
+		if(toppings.remove(topping)){
+			pizza.setToppingList(toppings);
+			return true;
+		}
+		
 		return false;
 	}
 	

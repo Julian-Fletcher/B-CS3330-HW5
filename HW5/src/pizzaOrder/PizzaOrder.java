@@ -108,7 +108,8 @@ public class PizzaOrder
 	}
 	
 	
-public boolean isThereAnyUncookedPizza() {
+public boolean isThereAnyUncookedPizza() 
+{
     for (AbstractPizza pizza : pizzaOrderList) 
     {
     	String pizzaType;
@@ -165,10 +166,11 @@ public boolean isThereAnyUncookedPizza() {
 			}
 			default:
 			{
-				return false; // All pizzas have assigned cooking strategies
+				break; 
 			}
 		}
     }
+	return false; // All pizzas have assigned cooking strategies
 }
 	
 	 
@@ -248,7 +250,7 @@ public boolean isThereAnyUncookedPizza() {
 		}
 	}
     // Call the cook function for the pizza
-    pizza.cook();
-
+    cookingStrategy.cook(pizza);
     return true;
+	}
 }
